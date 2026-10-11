@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI and ML security engineering across agents, prompt injection, MCP, workload identity, model integrity, and MLOps.">
+  <meta name="theme-color" content="#f5efe1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>AI/ML Security — Cloud Operations Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="https://cloudsec-jay.github.io/cloud-ops-engineering/"><span class="dot" aria-hidden="true"></span>Jason Tribble.</a>
+    <nav aria-label="Project navigation"><a href="https://cloudsec-jay.github.io/cloud-ops-engineering/">Overview</a><a href="https://cloudsec-jay.github.io/cloud-ops-engineering/#project-sites">Projects</a><a href="./" aria-current="page">AI Security</a></nav>
+    <a class="header-link" href="https://github.com/CloudSec-Jay/ai-ml-security">Source ↗</a>
+  </header>
+
+  <main id="content">
+    <div class="breadcrumb"><a href="https://cloudsec-jay.github.io/cloud-ops-engineering/#project-sites">Cloud Operations</a><span>/</span><span>Field Project 04</span><span>/</span>AI/ML Security</div>
+    <article>
+      <header class="project-header">
+        <div class="project-title">
+          <p class="overline">04 / Cloud Operations field project</p>
+          <h1>Secure the<br><em>agent boundary.</em></h1>
+          <p class="lede">Security engineering for AI agents, LLM applications, MCP integrations, model artifacts, and the cloud workloads beneath them.</p>
+        </div>
+        <dl class="project-facts">
+          <div><dt>Focus</dt><dd>Agents · LLM applications</dd></div>
+          <div><dt>Interfaces</dt><dd>MCP · IDE tools</dd></div>
+          <div><dt>Workloads</dt><dd>Kubernetes · AWS IAM</dd></div>
+          <div><dt>Frameworks</dt><dd>OWASP LLM · ATLAS</dd></div>
+          <div><dt>Status</dt><dd><span class="status-dot"></span>Labs + design controls</dd></div>
+        </dl>
+      </header>
+
+      <section class="summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">The premise</h2>
+        <div class="prose"><p>An AI agent is a principal with instructions, tools, credentials, and access to untrusted context. Its security boundary is wider than the model and narrower than the infrastructure around it.</p><p>This project follows the full decision path: how an attacker reaches the agent, what the agent is allowed to call, how artifacts are verified, and which evidence an operator needs afterward.</p></div>
+      </section>
+
+      <section class="project-section" aria-labelledby="boundary-title">
+        <div class="section-heading"><p>01</p><h2 id="boundary-title">Agent trust boundary</h2></div>
+        <div class="agent-map" role="img" aria-label="Untrusted context reaches an AI agent, which operates through a scoped tool broker connected to MCP tools, cloud identity, and protected data.">
+          <div class="input-stack"><span>UNTRUSTED CONTEXT</span><div>Prompts</div><div>Retrieved data</div><div>Tool output</div></div>
+          <div class="map-arrow"><i></i><span>VALIDATE</span></div>
+          <div class="agent-core"><small>DECISION BOUNDARY</small><strong>AI<br>Agent</strong><span>instructions · memory · policy</span></div>
+          <div class="map-arrow"><i></i><span>AUTHORIZE</span></div>
+          <div class="tool-stack"><span>SCOPED CAPABILITIES</span><div>MCP tools</div><div>Cloud identity</div><div>Protected data</div></div>
+        </div>
+        <div class="prose architecture-copy"><p>The agent is treated as a workload identity, not a trusted user. One role per purpose, explicit tool scope, controlled paths, and recorded calls reduce the impact of manipulated instructions.</p><p>Tool descriptions, retrieved documents, model artifacts, and plugin packages remain untrusted until their provenance and permissions are reviewed.</p></div>
+      </section>
+
+      <section class="project-section" aria-labelledby="work-title">
+        <div class="section-heading"><p>02</p><h2 id="work-title">Security workbench</h2></div>
+        <div class="workbench">
+          <a href="https://github.com/CloudSec-Jay/ai-ml-security/tree/main/agent-security"><span>A / AGENTS</span><h3>Threat models &amp; controls</h3><p>STRIDE analysis, IDE-agent boundaries, hook enforcement patterns, and over-privilege controls.</p><strong>Inspect artifacts ↗</strong></a>
+          <a href="https://github.com/CloudSec-Jay/ai-ml-security/tree/main/llm-attacks"><span>B / ATTACKS</span><h3>Prompt-injection lab</h3><p>Direct and indirect prompt-injection material organized around attack input, model behavior, detection signal, and defense.</p><strong>Open the lab ↗</strong></a>
+          <a href="https://github.com/CloudSec-Jay/ai-ml-security/tree/main/mcp-security"><span>C / MCP</span><h3>Tool attack surface</h3><p>Manifest review, tool poisoning, permission-scope analysis, and server-vetting considerations.</p><strong>Review controls ↗</strong></a>
+          <a href="https://github.com/CloudSec-Jay/ai-ml-security/tree/main/identity/ml-iam"><span>D / IDENTITY</span><h3>Workload identity</h3><p>Agent roles, Amazon Q IAM boundaries, Kubernetes service accounts, IRSA, and service-account hardening.</p><strong>Trace access ↗</strong></a>
+          <a href="https://github.com/CloudSec-Jay/ai-ml-security/tree/main/supply-chain"><span>E / SUPPLY CHAIN</span><h3>Verify before load</h3><p>MCP package vetting and model-weight integrity through hashes, signatures, and digest pinning.</p><strong>Check provenance ↗</strong></a>
+          <a href="https://github.com/CloudSec-Jay/ai-ml-security/tree/main/mlops-security"><span>F / MLOPS</span><h3>Pipeline isolation</h3><p>Kubernetes boundaries for data ingestion, training, evaluation, and model-serving workloads.</p><strong>Inspect the pipeline ↗</strong></a>
+        </div>
+      </section>
+
+      <section class="project-section" aria-labelledby="method-title">
+        <div class="section-heading"><p>03</p><h2 id="method-title">From attack to control</h2></div>
+        <ol class="method-path">
+          <li><span>01</span><div><h3>Reproduce</h3><p>Start with an explicit attack input and observable model or agent behavior.</p></div></li>
+          <li><span>02</span><div><h3>Locate the boundary</h3><p>Identify which instruction, tool, identity, package, or data path was trusted incorrectly.</p></div></li>
+          <li><span>03</span><div><h3>Constrain capability</h3><p>Reduce permissions and validate context at the narrowest useful enforcement point.</p></div></li>
+          <li><span>04</span><div><h3>Preserve evidence</h3><p>Record the agent identity, input, tool call, output, and resulting system action.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="project-section current-state" aria-labelledby="state-title">
+        <div class="section-heading"><p>04</p><h2 id="state-title">Current state</h2></div>
+        <div class="state-layout"><p class="state-callout">Controls in source.<br><em>Validation continues.</em></p><div class="prose"><p>The repository contains working prompt-injection examples, threat models, MCP review material, identity guidance, model-integrity controls, and Kubernetes MLOps security design.</p><p>Several areas remain intentionally incomplete, including broader red-team missions, output-validation implementations, agent audit trails, and end-to-end detection evidence. The source distinguishes built artifacts from roadmap work.</p></div></div>
+      </section>
+
+      <footer class="project-footer"><div><p class="overline">Repository</p><h2>Inspect the attack surface</h2></div><div class="footer-actions"><a class="primary-link" href="https://github.com/CloudSec-Jay/ai-ml-security">View on GitHub ↗</a><a href="https://cloudsec-jay.github.io/cloud-ops-engineering/#project-sites">Portfolio overview ←</a></div></footer>
+    </article>
+  </main>
+
+  <footer class="site-footer"><div><a class="brand" href="https://cloudsec-jay.github.io/cloud-ops-engineering/"><span class="dot" aria-hidden="true"></span>Jason Tribble.</a><p>Cloud operations. Built with intent.</p></div><div class="site-footer-links"><a href="https://cloudsec-jay.github.io/cloud-ops-engineering/">Portfolio</a><a href="https://github.com/CloudSec-Jay/ai-ml-security">Source</a><a href="#content">Back to top ↑</a></div></footer>
+</body>
+</html>

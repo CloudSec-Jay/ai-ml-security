@@ -1,0 +1,19 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+*.log
+
+# Keep raw model files, secrets, and generated security evidence out of Git.
+*.bin
+*.gguf
+*.safetensors
+/models/
+secrets/
+evidence/raw/
+

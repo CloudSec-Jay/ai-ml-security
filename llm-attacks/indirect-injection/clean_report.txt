@@ -1,0 +1,6 @@
+Q3 Security Report
+
+Incidents: 3 low-severity alerts, all resolved.
+Patching: 98% of systems current.
+Access reviews: completed for all 12 teams.
+Next review: 2026-07-01

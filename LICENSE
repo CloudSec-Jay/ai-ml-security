@@ -1,0 +1,8 @@
+Copyright (c) 2026 Jason Tribble.
+
+This is a personal portfolio repository. The configurations, documentation, designs,
+and original work contained here are my own and may not be copied or reused as your
+own portfolio or professional work without permission.
+
+The tools and frameworks referenced (Wazuh, Checkov, Trivy, Cilium, cosign, etc.)
+are the property of their respective owners and are used here under their own licenses.
