@@ -12,6 +12,8 @@ Security engineering for AI agents, LLM applications, MCP integrations, model ar
 
 ---
 
+> **Field Project 03 of the [Cloud Operations Engineering](https://github.com/CloudSec-Jay/cloud-ops-engineering) system.** Each project lives in its own repository and links back to the hub. [Portfolio site](https://cloudsec-jay.github.io/cloud-ops-engineering/) · [Project site](https://cloudsec-jay.github.io/ai-ml-security/)
+
 AI systems run on cloud infrastructure — you can't secure the application layer without understanding what's underneath. This section covers the attack surface that IAM, network controls, and detection rules don't reach: prompt injection, tool poisoning, model supply chain tampering, and agent over-privilege.
 
 **Design principle:** Zero Trust through scoping, not denial. One service identity per agent. MCP tool permissions bound to path, action, and context. Every tool call logged with agent identity, input, and output.
@@ -105,8 +107,5 @@ AI-specific offensive testing — model extraction, jailbreaks, agent exploitati
 - [`identity/ml-iam/`](identity/ml-iam/) — Service identities and scoped permissions for AI agents
 - [`supply-chain/models/`](supply-chain/models/) — Model weight integrity and provenance
 - [`supply-chain/ai-supply-chain/`](supply-chain/ai-supply-chain/) — MCP package vetting
-- [Cloud Security Engineering detection library](https://github.com/CloudSec-Jay/cloud-security-engineer/tree/main/detection) — Wazuh rules and incident-response material
+- [Kubernetes SecOps Platform detection content](https://github.com/CloudSec-Jay/k8s-secops-platform/tree/main/wazuh/content) — Wazuh rules, SCA content, and incident-response runbooks
 
-## Portfolio
-
-This project is part of the [Cloud Operations Engineering portfolio](https://cloudsec-jay.github.io/cloud-ops-engineering/).
